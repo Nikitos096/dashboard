@@ -17,9 +17,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User
 {
-    private const STATUS_WAIT = 10;
-    private const STATUS_ACTIVE = 20;
-
     /**
      * @ORM\Column(type="user_user_id")
      * @ORM\Id
@@ -57,10 +54,10 @@ class User
     private ?ResetToken $resetToken;
 
     /**
-     * @var int
-     * @ORM\Column(type="smallint")
+     * @var Status
+     * @ORM\Column(type="user_user_status")
      */
-    private int $status;
+    private Status $status;
 
     /**
      * @var Role
@@ -93,7 +90,7 @@ class User
         $user->email = $email;
         $user->passwordHash = $hash;
         $user->confirmToken = $token;
-        $user->status = self::STATUS_WAIT;
+        $user->status = Status::wait();
 
         return $user;
     }
@@ -104,7 +101,7 @@ class User
             throw new \DomainException('User is already confirmed.');
         }
 
-        $this->status = self::STATUS_ACTIVE;
+        $this->status = Status::active();
         $this->confirmToken = null;
     }
 
@@ -112,7 +109,7 @@ class User
     {
         $user = new self($id, $date);
         $user->attachNetwork($network, $identity);
-        $user->status = self::STATUS_ACTIVE;
+        $user->status = Status::active();
 
         return $user;
     }
@@ -163,12 +160,12 @@ class User
 
     public function isWait(): bool
     {
-        return $this->status === self::STATUS_WAIT;
+        return $this->status->isWait();
     }
 
     public function isActive(): bool
     {
-        return $this->status === self::STATUS_ACTIVE;
+        return $this->status->isActive();
     }
 
     public function getId(): Id

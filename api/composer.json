@@ -20,6 +20,7 @@
         "symfony/yaml": "^5.0.4"
     },
     "require-dev": {
+        "symfony/maker-bundle": "^1.0@dev"
     },
     "config": {
         "optimize-autoloader": true,
