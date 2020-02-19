@@ -177,6 +177,9 @@
             ".env"
         ]
     },
+    "symfony/form": {
+        "version": "5.1-dev"
+    },
     "symfony/framework-bundle": {
         "version": "5.1",
         "recipe": {
@@ -202,6 +205,12 @@
     "symfony/http-kernel": {
         "version": "5.1-dev"
     },
+    "symfony/inflector": {
+        "version": "5.1-dev"
+    },
+    "symfony/intl": {
+        "version": "5.1-dev"
+    },
     "symfony/maker-bundle": {
         "version": "1.0",
         "recipe": {
@@ -210,6 +219,9 @@
             "version": "1.0",
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
+    },
+    "symfony/options-resolver": {
+        "version": "5.1-dev"
     },
     "symfony/phpunit-bridge": {
         "version": "4.3",
@@ -230,6 +242,9 @@
     "symfony/polyfill-intl-grapheme": {
         "version": "1.14-dev"
     },
+    "symfony/polyfill-intl-icu": {
+        "version": "1.14-dev"
+    },
     "symfony/polyfill-intl-normalizer": {
         "version": "1.14-dev"
     },
@@ -238,6 +253,12 @@
     },
     "symfony/polyfill-php73": {
         "version": "1.14-dev"
+    },
+    "symfony/property-access": {
+        "version": "5.1-dev"
+    },
+    "symfony/property-info": {
+        "version": "5.1-dev"
     },
     "symfony/routing": {
         "version": "4.2",
@@ -264,6 +285,19 @@
     },
     "symfony/translation-contracts": {
         "version": "2.0-dev"
+    },
+    "symfony/validator": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "d902da3e4952f18d3bf05aab29512eb61cabd869"
+        },
+        "files": [
+            "config/packages/test/validator.yaml",
+            "config/packages/validator.yaml"
+        ]
     },
     "symfony/var-dumper": {
         "version": "5.1-dev"
