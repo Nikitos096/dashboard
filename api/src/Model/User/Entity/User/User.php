@@ -69,7 +69,7 @@ class User
      * @var Network[]|ArrayCollection
      * @ORM\OneToMany(targetEntity="Network", mappedBy="user", orphanRemoval=true, cascade={"persist"})
      */
-    private ArrayCollection $networks;
+    private $networks;
 
     private function __construct(Id $id, \DateTimeImmutable $date)
     {

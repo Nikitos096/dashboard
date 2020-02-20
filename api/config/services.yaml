@@ -25,3 +25,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Container\Model\User\Service\ConfirmTokenSenderFactory: ~
+
+    App\Model\User\Service\ConfirmTokenSender:
+        factory: ['@App\Container\Model\User\Service\ConfirmTokenSenderFactory', 'create']
+        arguments: ['%env(MAILER_FROM_EMAIL)%']
