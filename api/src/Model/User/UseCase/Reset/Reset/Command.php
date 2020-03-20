@@ -9,11 +9,11 @@ class Command
     /**
      * @var string
      */
-    public $token;
+    public string $token;
     /**
      * @var string
      */
-    public $password;
+    public string $password;
 
     public function __construct(string $token)
     {

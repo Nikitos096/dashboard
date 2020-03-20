@@ -27,7 +27,15 @@ services:
     # please note that last definitions always *replace* previous ones
 
     App\Container\Model\User\Service\ConfirmTokenSenderFactory: ~
-
     App\Model\User\Service\ConfirmTokenSender:
         factory: ['@App\Container\Model\User\Service\ConfirmTokenSenderFactory', 'create']
         arguments: ['%env(MAILER_FROM_EMAIL)%']
+
+    App\Container\Model\User\Service\ResetTokenSenderFactory: ~
+    App\Model\User\Service\ResetTokenSender:
+        factory: ['@App\Container\Model\User\Service\ResetTokenSenderFactory', 'create']
+        arguments: ['%env(MAILER_FROM_EMAIL)%']
+
+    App\Model\User\Service\ResetTokenizer:
+        factory: ['App\Container\Model\User\Service\ResetTokenizerFactory', 'create']
+        arguments: ['PT1H']

@@ -10,9 +10,9 @@ use App\Model\User\Service\PasswordHasher;
 
 class Handler
 {
-    private $users;
-    private $hasher;
-    private $flusher;
+    private UserRepository $users;
+    private PasswordHasher $hasher;
+    private Flusher $flusher;
 
     public function __construct(UserRepository $users, PasswordHasher $hasher, Flusher $flusher)
     {
