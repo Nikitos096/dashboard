@@ -1,6 +1,6 @@
 up: docker-up
 down: docker-down
-init: docker-down-clear docker-pull docker-build docker-up api-init
+init: docker-down-clear docker-pull docker-build docker-up api-init api-test
 test: api-test
 
 docker-up:
@@ -18,7 +18,7 @@ docker-pull:
 docker-build:
 	docker-compose build
 
-api-init: api-composer-install api-permissions
+api-init: api-composer-install api-permissions api-migrations
 
 api-composer-install:
 	docker-compose run --rm api-php-cli composer install
@@ -28,3 +28,9 @@ api-test:
 
 api-permissions:
 	docker-compose run --rm api-php-cli chown 1000:1000 ./ -R
+
+api-wait-db:
+	docker-compose run --rm api-php-cli /app/docker/development/scripts/wait-for-it.sh api-postgres:5432
+
+api-migrations: api-wait-db
+	docker-compose run --rm api-php-cli bin/console doctrine:migrations:migrate --no-interaction
