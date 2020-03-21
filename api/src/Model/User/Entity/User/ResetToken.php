@@ -15,12 +15,12 @@ class ResetToken
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private string $token;
+    private ?string $token;
 
     /**
      * @ORM\Column(type="datetime_immutable", nullable=true)
      */
-    private \DateTimeImmutable $expires;
+    private ?\DateTimeImmutable $expires;
 
     public function __construct(string $token, \DateTimeImmutable $expires)
     {
