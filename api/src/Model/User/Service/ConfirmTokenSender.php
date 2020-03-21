@@ -26,6 +26,7 @@ class ConfirmTokenSender
         $this->message
             ->from($this->from)
             ->to($email->getValue())
+            ->subject('SignUp Confirmation')
             ->text('Token: '.$token);
 
         $this->mailer->send($this->message);
