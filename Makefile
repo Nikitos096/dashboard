@@ -18,7 +18,7 @@ docker-pull:
 docker-build:
 	docker-compose build
 
-api-init: api-composer-install api-permissions api-migrations
+api-init: api-composer-install api-permissions api-migrations api-fixtures
 
 api-composer-install:
 	docker-compose run --rm api-php-cli composer install
@@ -34,3 +34,6 @@ api-wait-db:
 
 api-migrations: api-wait-db
 	docker-compose run --rm api-php-cli bin/console doctrine:migrations:migrate --no-interaction
+
+api-fixtures:
+	docker-compose run --rm api-php-cli bin/console doctrine:fixtures:load --no-interaction
