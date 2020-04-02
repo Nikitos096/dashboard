@@ -14,4 +14,10 @@ class Command
      * @var string
      */
     public string $identity;
+
+    public function __construct(string $network, string  $identity)
+    {
+        $this->network = $network;
+        $this->identity = $identity;
+    }
 }
