@@ -147,6 +147,9 @@
     "php": {
         "version": "7.4"
     },
+    "phpdocumentor/reflection-docblock": {
+        "version": "2.0.x-dev"
+    },
     "psr/cache": {
         "version": "1.0.x-dev"
     },
@@ -372,6 +375,12 @@
     },
     "symfony/security-http": {
         "version": "5.1-dev"
+    },
+    "symfony/serializer": {
+        "version": "5.1-dev"
+    },
+    "symfony/serializer-pack": {
+        "version": "dev-master"
     },
     "symfony/service-contracts": {
         "version": "2.0-dev"
