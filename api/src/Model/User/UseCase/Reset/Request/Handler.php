@@ -32,7 +32,7 @@ class Handler
 
     public function handle(Command $command): void
     {
-        $user = $this->users->getByEmail(new Email($command->email));
+        $user = $this->users->getByEmail(new Email($command->getEmail()));
 
         $user->requestPasswordReset(
             $this->tokenizer->generate(),

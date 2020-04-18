@@ -23,13 +23,13 @@ class Handler
 
     public function handle(Command $command): void
     {
-        if (!$user = $this->users->findByResetToken($command->token)) {
+        if (!$user = $this->users->findByResetToken($command->getToken())) {
             throw new \DomainException('Incorrect or confirmed token.');
         }
 
         $user->passwordReset(
             new \DateTimeImmutable(),
-            $this->hasher->hash($command->password)
+            $this->hasher->hash($command->getPassword())
         );
 
         $this->flusher->flush();
