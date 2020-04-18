@@ -67,7 +67,7 @@ class FacebookAuthenticator extends SocialAuthenticator
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): Response
     {
-        $message = strstr($exception->getMessageKey(), $exception->getMessageData());
+        $message = strtr($exception->getMessageKey(), $exception->getMessageData());
 
         return new Response($message, Response::HTTP_FORBIDDEN);
     }
